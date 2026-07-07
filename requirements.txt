@@ -1,0 +1,15 @@
+streamlit
+pandas
+numpy>=2.1.0
+scikit-learn
+matplotlib
+seaborn
+joblib
+openpyxl
+shap
+psycopg2-binary
+python-dotenv
+APScheduler
+gspread
+google-auth-oauthlib
+
