@@ -30,21 +30,19 @@ logger = logging.getLogger(__name__)
 # LOAD RAW DATA FROM DATABASE
 # ════════════════════════════════════════
 def load_raw_data():
-    """Load data dari raw_student_data table"""
     try:
         conn = get_db_connection()
-        logger.info(f"📥 Loading raw data from {RAW_TABLE}")
+        logger.info(f"📥 Loading raw data from raw_student_data")
         
-        df = pd.read_sql(f"SELECT * FROM {RAW_TABLE}", conn)
-        
-        logger.info(f"✅ Loaded {len(df)} rows from raw table")
+        df = pd.read_sql("SELECT * FROM raw_student_data", conn)
         conn.close()
         
+        logger.info(f"✅ Loaded {len(df)} rows from raw table")
         return df
         
     except Exception as e:
         logger.error(f"❌ Error loading raw data: {e}")
-        raise
+        return pd.DataFrame()
 
 
 # ════════════════════════════════════════

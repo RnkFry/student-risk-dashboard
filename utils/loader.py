@@ -31,7 +31,7 @@ def load_processed_data():
     """
     try:
         conn = get_db_connection()
-        query = f"SELECT * FROM {PROCESSED_TABLE}"
+        query = "SELECT * FROM processed_student_data"
         df = pd.read_sql(query, conn)
         conn.close()
         

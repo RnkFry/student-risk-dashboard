@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 from etl.extractor import run_extractor
 from etl.transformer import run_transformer
+from config.database import init_db
 
 # ════════════════════════════════════════
 # SETUP LOGGING
@@ -27,6 +28,7 @@ def run_etl_pipeline():
     2. Transform raw data ke processed_student_data table
     """
     try:
+        init_db()
         logger.info("\n" + "=" * 70)
         logger.info("🚀 STARTING COMPLETE ETL PIPELINE")
         logger.info("=" * 70)
